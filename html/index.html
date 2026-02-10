@@ -68,41 +68,7 @@
         <div class = "container"> 
             <h2>My Projects</h2>
             <div class = "project-container">
-                 <div class="project-card">
-                    <img src="../images/project-placeholder-1.jpg" alt="A screenshot or mockup of Project Two" class="project-image">e">
-                     <div class="project-info">
-                         <h3>Project One Title</h3>
-                <p>
-                    A brief and compelling description of the project, highlighting the key technologies used and the problem it solves. Keep it to 2-3 sentences.
-                </p>
-          </div>
-          <div class="project-links">
-                <a href="#" target="_blank">Live Demo</a>
-                 <a href="#" target="_blank">View Code</a>
-           </div>
-    </div>
-           <div class="project-card">
-        <img src="images/project-placeholder-1.jpg" alt="A screenshot or mockup of Project Two" class="project-image">
-        <div class="project-info">
-            <h3>Project Two Title</h3>
-            <p>A brief and compelling description of the project...</p>
-        </div>
-        <div class="project-links">
-            <a href="#" target="_blank">Live Demo</a>
-            <a href="#" target="_blank">View Code</a>
-        </div>
-    </div>
-    <div class="project-card">
-                    <img src="../images/project-placeholder-1.jpg" alt="A screenshot or mockup of Project Three" class="project-image">
-        <div class="project-info">
-            <h3>Project Three Title</h3>
-            <p>A brief and compelling description of the project...</p>
-        </div>
-        <div class="project-links">
-            <a href="#" target="_blank">Live Demo</a>
-            <a href="#" target="_blank">View Code</a>
-        </div>
-    </div>
+                 
 </div>
         </div>
 
@@ -111,13 +77,25 @@
         <div class="container">
             <h2>Contact Me</h2>
             <p>Feel free to reach out to me via email or this form</p>
-            <form>
-                <label for="name">Name:</label>
+            <form
+            id = "contact-form"
+            action = "https://formspree.io/f/mpqjwega"
+            method = "POST"
+            >
+             <div> 
+            <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="your name" required>
+              </div>  
+              <div>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="your email" required>
+               </div>
+               <div>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" placeholder="your message" required></textarea>
+                </div>
+
+                <div id ="form-status"></div>
                 <button type="submit">SUBMIT</button>
 
             </form>
@@ -127,8 +105,9 @@
         <div class="container">
             <p>&copy; 2026 Hemanth C S. All rights reserved.</p>
             <ul>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">GitHub</a></li>
+                <li><a href="">LinkedIn</a></li>
+                <li><a href="https://github.com/hemanthcs34"
+                    aria-label="View my profile on GitHub">GitHub</a></li>
                 <li><a href="#">Twitter</a></li>
             </ul>
         </div>

@@ -30,6 +30,8 @@
   --line-height-base: 1.5;
   --font-weight-normal: 400;
   --font-weight-bold: 700;
+  /* Medium font weight used in some components */
+  --font-weight-medium: 500;
 
   /* ========================================
      SPACING & LAYOUT
@@ -792,6 +794,71 @@ header nav ul li a:focus {
   /* The filter property is a modern way to change appearance. brightness(90%) slightly darkens the element. */
   filter: brightness(90%);
 }
+#form-status {
+  /* Common styles for both success and error messages */
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  font-weight: var(--font-weight-medium);
+  
+  /* 
+    IMPORTANT: Hide the container by default.
+    We will use JavaScript to make it visible.
+  */
+  display: none;
+  
+  /* 
+    Add a smooth transition for opacity and transform.
+    This will make the message gracefully fade and slide into view.
+  */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* 
+  Success State Styling
+  The `.success` class will be added via JavaScript on a successful submission.
+*/
+#form-status.success {
+  display: block; /* Make the element visible */
+  opacity: 1; /* Fade it in */
+  transform: translateY(0); /* Slide it down to its final position */
+  background-color: #d1e7dd; /* A pleasant, light green */
+  color: #0f5132; /* A dark green for good contrast */
+  border: 1px solid #badbcc;
+}
+
+/* 
+  Error State Styling
+  The `.error` class will be added via JavaScript if the submission fails.
+*/
+#form-status.error {
+  display: block; /* Make the element visible */
+  opacity: 1; /* Fade it in */
+  transform: translateY(0); /* Slide it down to its final position */
+  background-color: #f8d7da; /* A standard light red for errors */
+  color: #842029; /* A dark red for good contrast */
+  border: 1px solid #f5c2c7;
+}
+
+/* 
+  Dark Theme Adjustments for Status Messages
+  Ensure the messages have appropriate colors in dark mode.
+  This is a great example of the power of your theme variables!
+*/
+html[data-theme='dark'] #form-status.success {
+  background-color: #0f5132; /* Darker green background */
+  color: #d1e7dd; /* Lighter green text */
+  border-color: #146c43;
+}
+
+html[data-theme='dark'] #form-status.error {
+  background-color: #842029; /* Darker red background */
+  color: #f8d7da; /* Lighter red text */
+  border-color: #9b2a34;
+}
 /*
   ========================================
   FOOTER SECTION
@@ -939,7 +1006,7 @@ footer ul li a:hover {
     This gives each project card more horizontal space, making them larger,
     more prominent, and easier to tap on a touch device.
   */
-  .projects-container {
+  .project-container {
     grid-template-columns: repeat(2, 1fr);
   }
   header nav {
@@ -972,7 +1039,7 @@ footer ul li a:hover {
     large, readable, and easy to tap. We are overriding the 'repeat(2, 1fr)'
     from our tablet media query.
   */
-  .projects-container {
+  .project-container {
     grid-template-columns: 1fr; /* Or repeat(1, 1fr) */
   }
 
@@ -1029,7 +1096,7 @@ footer ul li a:hover {
     Increase the tappable area and spacing of footer social media links.
     This prevents users from accidentally tapping the wrong link.
   */
-s  footer ul {
+  footer ul {
     gap: calc(var(--spacing-unit) * 1.5); /* Increase the space between links */
   }
 
